@@ -8,7 +8,6 @@ import { VitePluginHotVfs } from '../../src/index'
 const vfs = createStorage({
   driver: driverMemory(),
 })
-vfs.setItemRaw('src/App.vue', '<template><div>Hijacked222</div></template>')
 
 export default defineConfig({
   plugins: [
