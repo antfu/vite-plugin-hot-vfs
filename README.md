@@ -8,6 +8,13 @@
 
 Vite plugin for hosting vfs with HMR
 
+| Name | Files |
+|------|-------|
+| VFS 1 |  `[, 'index.css']`  |
+| VFS 2 |  `['foo.js']` |
+| VFS 3 |  `['index.js', 'index.css', 'index.html']` |
+| FileSystem | `[]` |
+
 ## Sponsors
 
 <p align="center">
