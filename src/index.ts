@@ -58,7 +58,7 @@ export function VitePluginHotVfs(options?: VitePluginHotVfsOptions): Plugin[] {
           })
         }
       },
-      buildStart() {
+      buildEnd() {
         disposables.forEach(r => r())
         disposables.length = 0
       },
