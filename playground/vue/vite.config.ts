@@ -20,8 +20,11 @@ export default defineConfig({
     {
       name: 'a',
       configureServer(server) {
-        server.ws.on('hello', (data) => {
+        server.ws.on('code1', (data) => {
           layer.writeFile('src/App.vue', data)
+        })
+        server.ws.on('code2', (data) => {
+          layer.writeFile('src/random.ts', data)
         })
       },
     },

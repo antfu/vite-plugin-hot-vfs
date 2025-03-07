@@ -26,7 +26,7 @@ export function VitePluginHotVirtualFileSystem(host: VirtualFileSystemHost = new
       enforce: 'pre',
       configureServer(server) {
         host.events.on('file:update', (event) => {
-          const filepath = join(root, event.file)
+          const filepath = join(root, event.id)
           for (const env of Object.values(server.environments)) {
             const mods = env.moduleGraph.getModulesByFile(filepath) || []
             for (const mod of mods) {
