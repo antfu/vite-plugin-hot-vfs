@@ -6,14 +6,14 @@
 [![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
-Vite plugin for hosting vfs with HMR
+Vite plugin for mounting virtual file system with HMR.
 
-| Name | Files |
-|------|-------|
-| VFS 1 |  `[, 'index.css']`  |
-| VFS 2 |  `['foo.js']` |
-| VFS 3 |  `['index.js', 'index.css', 'index.html']` |
-| FileSystem | `[]` |
+Not only for virtual modules, this plugin is also able to mount virtual file system to any path and take over the content. Which would allow you to try code changes without actually writing to the file system, or even start an app from a zip/tarball or even remote urls.
+
+This plugin is also designed to work with multi-layer virtual file systems with fallback mechanism. And would allow you to inert vfs layers or remove them anytime.
+
+> [!WARNING]
+> Working in progress
 
 ## Sponsors
 
