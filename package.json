@@ -28,6 +28,7 @@
     "build": "unbuild",
     "dev": "unbuild --stub",
     "lint": "eslint .",
+    "play": "nr -C playground/vue dev",
     "prepublishOnly": "nr build",
     "release": "bumpp && pnpm publish",
     "start": "tsx src/index.ts",
@@ -36,6 +37,7 @@
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
+    "nanoevents": "^9.1.0",
     "pathe": "^2.0.3",
     "undio": "^0.2.0"
   },

@@ -3,20 +3,27 @@ import { createStorage } from 'unstorage'
 import driverMemory from 'unstorage/drivers/memory'
 import { defineConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
-import { VitePluginHotVfs } from '../../src/index'
+import { VirtualFileSystemHost, VirtualFileSystemLayer, VitePluginHotVirtualFileSystem } from '../../src'
 
-const vfs = createStorage({
-  driver: driverMemory(),
-})
+const host = new VirtualFileSystemHost()
+const layer = new VirtualFileSystemLayer(
+  'hi',
+  createStorage({ driver: driverMemory() }),
+)
+host.addLayer(layer)
 
 export default defineConfig({
   plugins: [
     Vue(),
-    VitePluginHotVfs({
-      vfsLayers: [
-        vfs,
-      ],
-    }),
+    VitePluginHotVirtualFileSystem(host),
     Inspect(),
+    {
+      name: 'a',
+      configureServer(server) {
+        server.ws.on('hello', (data) => {
+          layer.writeFile('src/App.vue', data)
+        })
+      },
+    },
   ],
 })
